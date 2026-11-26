@@ -1,19 +1,23 @@
 import os
+from pathlib import Path
 
-SENTENCE = (
+TEXT = (
     "The best meal I ever had was the instant noodles with a swirled egg "
-    "that I cooked for my mother in her own kitchen the week she forgot "
-    "my name, and she praised the broth like I was a kind stranger."
+    "I cooked for my mother in her own kitchen the week she forgot my name, "
+    "and she told me I had used too much salt, as always."
 )
 
 
-def main():
-    assert 1 <= len(SENTENCE) <= 200
-    assert SENTENCE.endswith(".") and SENTENCE.count(".") == 1
-    os.makedirs("/output", exist_ok=True)
-    with open("/output/entry.txt", "w", encoding="utf-8") as fh:
-        fh.write(SENTENCE)
+def write_entry():
+    if not 1 <= len(TEXT) <= 200:
+        raise ValueError("entry length out of range")
+    if TEXT.count(".") != 1 or not TEXT.endswith("."):
+        raise ValueError("entry must be one sentence")
+    target = Path("/output/entry.txt")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(TEXT, encoding="utf-8")
+    os.chmod(target, 0o644)
 
 
 if __name__ == "__main__":
-    main()
+    write_entry()
