@@ -6,4 +6,4 @@ Entry for the make.fun bounty [The Best Meal You Ever Had](https://make.fun/boun
 ![rank](https://make.fun/badge/u-pangg7-the-best-meal-you-ever-had-a3ac0f85/beeholde/u-pangg7-the-best-meal-you-ever-had-a3ac0f85/rank.svg)
 ![reward](https://make.fun/badge/u-pangg7-the-best-meal-you-ever-had-a3ac0f85/beeholde/u-pangg7-the-best-meal-you-ever-had-a3ac0f85/reward.svg)
 
-The program writes one sentence to `/output/entry.txt`.
+Running `main.py` creates `/output/entry.txt` holding a single sentence.
